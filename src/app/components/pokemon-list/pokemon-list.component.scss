@@ -1,0 +1,12 @@
+$borderBlue: blue;
+$borderYellow: yellow;
+
+.mat-mdc-row .mat-mdc-cell {
+  border-bottom: 1px solid $borderBlue;
+  border-top: 1px solid $borderBlue;
+  cursor: pointer;
+}
+
+.pokemon-table {
+  width: 40em;
+}

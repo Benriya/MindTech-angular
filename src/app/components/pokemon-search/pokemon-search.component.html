@@ -1,0 +1,22 @@
+<div class="flex">
+  <div>
+    <mat-form-field>
+      <mat-label>Filters</mat-label>
+      <input matInput placeholder="Search by name" (keyup)="filterPokemons($event)">
+    </mat-form-field>
+  </div>
+
+  <div>
+    <h4>Pokemon Types</h4>
+    <mat-form-field>
+      <mat-label>Choose an option</mat-label>
+      <select matNativeControl>
+        <option value="grass">Grass</option>
+        <option value="poison">Poison</option>
+        <option value="fire">Fire</option>
+        <option value="water">Water</option>
+      </select>
+    </mat-form-field>
+  </div>
+  <mat-checkbox>Only show caught Pokemons</mat-checkbox>
+</div>

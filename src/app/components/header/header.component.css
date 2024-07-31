@@ -1,0 +1,21 @@
+.text {
+  color: white
+}
+
+.flex-view {
+  display: flex;
+  justify-content: space-between;
+  height: 3em;
+}
+
+.header {
+  background-color: #a52323;
+}
+
+.logo {
+  width: 6em;
+  height: 3em;
+  background-image: url('../../resources/Pokemon-Logo.png');
+  background-repeat: no-repeat;
+  background-size: cover;
+}

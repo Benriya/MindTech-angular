@@ -1,11 +1,13 @@
 import { Component } from '@angular/core';
-import { RouterOutlet } from '@angular/router';
+import {HeaderComponent} from "./components/header/header.component";
+import {PokemonFrontPageComponent} from "./components/pokemon-front-page/pokemon-front-page.component";
+import {RouterLink, RouterLinkActive, RouterOutlet} from "@angular/router";
 
 @Component({
   selector: 'app-root',
-  standalone: true,
-  imports: [RouterOutlet],
   templateUrl: './app.component.html',
+  standalone: true,
+  imports: [HeaderComponent, PokemonFrontPageComponent, RouterOutlet, RouterLink, RouterLinkActive],
   styleUrl: './app.component.css'
 })
 export class AppComponent {

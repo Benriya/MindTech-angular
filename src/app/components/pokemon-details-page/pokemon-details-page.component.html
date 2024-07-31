@@ -1,0 +1,13 @@
+<button mat-raised-button>Back to search</button>
+<div class="flex">
+  <div>
+    <img class="pokemon-picture" [ngSrc]="pokemon.sprites.front_default" [alt]="pokemon.name" fill>
+  </div>
+  <div>
+    <div>Name: {{pokemon.name}}</div>
+    <div>Weight: {{pokemon.weight}}</div>
+    <div>Height: {{pokemon.height}}</div>
+    <div>Abilities: {{getAbilities()}}</div>
+    <div>Status: {{pokemon.caught ? 'Release' : 'Catch'}}</div>
+  </div>
+</div>

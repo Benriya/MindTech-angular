@@ -1,0 +1,11 @@
+.mat-mdc-row .mat-mdc-cell {
+  border-bottom: 1px solid blue;
+  border-top: 1px solid blue;
+  cursor: pointer;
+}
+
+.pokemon-table {
+  width: 40em;
+}
+
+/*# sourceMappingURL=pokemon-list.component.css.map */
