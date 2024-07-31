@@ -1,0 +1,9 @@
+<div>
+  <h4>Pokemon Types</h4>
+  <mat-form-field>
+    <mat-label>Choose an option</mat-label>
+    <mat-select (selectionChange)="changeType($event.value)">
+      <mat-option *ngFor="let type of TYPES" [value]="type">{{ type }}</mat-option>
+    </mat-select>
+  </mat-form-field>
+</div>

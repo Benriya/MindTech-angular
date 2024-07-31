@@ -1,1 +1,1 @@
-{"version":3,"sourceRoot":"","sources":["pokemon-list.component.scss"],"names":[],"mappings":"AAGA;EACE;EACA;EACA;;;AAGF;EACE","file":"pokemon-list.component.css"}
+{"version":3,"sourceRoot":"","sources":["pokemon-list.component.scss"],"names":[],"mappings":"AAGA;EACE;EACA;EACA;;;AAGF;EACE;EACA,OAVa;;;AAaf;EACE;;;AAGF;EACE;EACA;EACA;EACA;EACA","file":"pokemon-list.component.css"}

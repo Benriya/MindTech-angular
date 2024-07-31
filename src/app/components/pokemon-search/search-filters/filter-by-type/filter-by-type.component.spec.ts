@@ -1,18 +1,18 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { ButtonComponent } from './button.component';
+import { FilterByTypeComponent } from './filter-by-type.component';
 
-describe('ButtonComponent', () => {
-  let component: ButtonComponent;
-  let fixture: ComponentFixture<ButtonComponent>;
+describe('FilterByTypeComponent', () => {
+  let component: FilterByTypeComponent;
+  let fixture: ComponentFixture<FilterByTypeComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      imports: [ButtonComponent]
+      imports: [FilterByTypeComponent]
     })
     .compileComponents();
 
-    fixture = TestBed.createComponent(ButtonComponent);
+    fixture = TestBed.createComponent(FilterByTypeComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

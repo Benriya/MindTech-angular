@@ -4,54 +4,37 @@ import {PokemonService} from "../../services/pokemon-api/pokemon.service";
 import {Router} from "@angular/router";
 import {MatButtonModule} from "@angular/material/button";
 import {GenericAPIModel} from "../../models/genericAPIModel";
+import {PokemonModel} from "../../models/pokemon-model";
+import {SpinnerComponent} from "../../resources/spinner/spinner.component";
+import {NgClass, NgIf} from "@angular/common";
 
 @Component({
   selector: 'app-pokemon-list',
   standalone: true,
-  imports: [MatTableModule, MatButtonModule],
+  imports: [MatTableModule, MatButtonModule, SpinnerComponent, NgIf, NgClass],
   templateUrl: './pokemon-list.component.html',
   styleUrl: './pokemon-list.component.scss'
 })
 export class PokemonListComponent {
-  @Input() pokemons: any[] = [];
+  @Input() pokemons: PokemonModel[] = [];
   displayedColumns: string[] = ['name', 'types', 'status', 'button'];
 
-  constructor(private readonly courseService: PokemonService, private readonly router: Router) {}
+  constructor(private readonly pokemonService: PokemonService, private readonly router: Router) {}
 
-  getTypes(pokemon: any): string[] {
-    return pokemon.types.map((type: {slot: number, type: GenericAPIModel} ) => type.type.name);
+  getTypes(pokemon: PokemonModel): string[] {
+    return this.pokemonService.getTypes(pokemon);
   }
 
   isCaught(caught: boolean): string {
     return caught ? 'Caught' : '-';
   }
 
-  pokemonAction(event: MouseEvent, pokemon: any): void {
+  pokemonAction(event: MouseEvent, pokemon: PokemonModel): void {
     event.stopPropagation();
-    pokemon.caught = !pokemon.caught;
+    this.pokemonService.catchPokemon(pokemon);
   }
 
-  openPokemonDetails(pokemon: any): void {
-    console.log(pokemon);
-
-    this.router.navigate(['/pokemon-details/', { pokemon: pokemon.name }]);
+  openPokemonDetails(pokemonName: string, caught: boolean): void {
+    this.router.navigate(['/pokemon-details/', { pokemon: pokemonName, status: caught }]);
   }
-
-  /*courseId(index: number, course: Course) {
-    return course.id;
-  }
-
-  deleteCourse(courseId: number) {
-    if (this.askForDeletion()) {
-      this.courseService.removeItem(courseId).pipe(untilDestroyed(this)).subscribe();
-    }
-  }
-
-  askForDeletion(): boolean {
-    return confirm('Do you really want to delete the selected entries?');
-  }
-
-  navigateToEditCourse(id: number): void {
-    this.router.navigate([`/courses/${id}`]);
-  }*/
 }

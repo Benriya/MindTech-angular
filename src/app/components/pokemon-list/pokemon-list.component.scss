@@ -1,5 +1,5 @@
 $borderBlue: blue;
-$borderYellow: yellow;
+$borderYellow: green;
 
 .mat-mdc-row .mat-mdc-cell {
   border-bottom: 1px solid $borderBlue;
@@ -7,6 +7,19 @@ $borderYellow: yellow;
   cursor: pointer;
 }
 
+.caught {
+  font-weight: bold;
+  color: $borderYellow;
+}
+
 .pokemon-table {
   width: 40em;
+}
+
+.spinner {
+  display: flex;
+  align-items: center;
+  transform: scale(10);
+  position: relative;
+  top: 10em;
 }

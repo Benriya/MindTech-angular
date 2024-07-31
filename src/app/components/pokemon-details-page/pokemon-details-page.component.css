@@ -7,3 +7,12 @@
 .pokemon-picture {
   position: relative !important;
 }
+
+.spinner {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transform: scale(10);
+  top: 10em;
+  position: relative;
+}
