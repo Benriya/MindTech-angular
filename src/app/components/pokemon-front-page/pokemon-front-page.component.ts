@@ -24,6 +24,8 @@ import {AsyncPipe} from "@angular/common";
 export class PokemonFrontPageComponent implements OnInit{
   pokemons$: Observable<PokemonModel[]>;
   existingPokemonLength = 0;
+  savedPokemons = localStorage.getItem('caughtPokemons');
+  caughtPokemons = !!this.savedPokemons ? JSON.parse(this.savedPokemons).map((pokemon: PokemonModel) => pokemon.name) : [];
   constructor(
     private readonly pokemonService: PokemonService
   ) {
@@ -46,7 +48,7 @@ export class PokemonFrontPageComponent implements OnInit{
           }
         )
       ).subscribe((pokemons: PokemonModel[]) => {
-        pokemons.map((pokemon: PokemonModel) => pokemon.caught = false);
+        pokemons.map((pokemon: PokemonModel) => pokemon.caught = !!this.caughtPokemons.includes(pokemon.name));
         console.log(pokemons);
         this.pokemonService.setUpPokemons(pokemons);
       });

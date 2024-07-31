@@ -42,6 +42,7 @@ export class PokemonDetailsPageComponent implements OnInit {
       .subscribe(pokemon => this.pokemon = pokemon);
   }
 
+  //refreshing before clicking Catch or Release will delete LocalStorage, don't know why yet
   pokemonAction(event: MouseEvent, pokemon: PokemonModel): void {
     event.stopPropagation();
     pokemon.caught = this.status;

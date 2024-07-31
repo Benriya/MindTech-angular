@@ -10,23 +10,23 @@ import {GenericAPIModel} from "../../models/genericAPIModel";
   providedIn: 'root'
 })
 export class PokemonService {
-  private pokemons = new BehaviorSubject(<PokemonModel[]>[]);
+  private pokemons = new BehaviorSubject<PokemonModel[]>([]);
   pokemons$ = this.pokemons.asObservable();
 
   setUpPokemons(pokemons: PokemonModel[]): void {
-    console.log(pokemons);
     this.pokemons.next(pokemons);
   }
 
   catchPokemon(pokemonAction: PokemonModel): void {
     const pokemons = this.pokemons.getValue().map((pokemon: PokemonModel) => {
-      console.log(pokemonAction.caught);
       if(pokemon.name === pokemonAction.name) {
         pokemon.caught = !pokemonAction.caught
       }
       return pokemon;
     });
-    this.pokemons.next([...pokemons])
+    this.pokemons.next([...pokemons]);
+    const caughtPokemons = pokemons.filter(pokemon => pokemon.caught);
+    localStorage.setItem('caughtPokemons', JSON.stringify(caughtPokemons));
   }
 
   API_URL = apiUrl;
