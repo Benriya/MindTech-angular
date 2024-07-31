@@ -1,4 +1,4 @@
 export interface GenericAPIModel {
-  name: string,
-  url: string
+  name: string;
+  url: string;
 }

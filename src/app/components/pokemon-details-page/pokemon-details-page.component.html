@@ -1,16 +1,25 @@
-<button mat-raised-button (click)="navigateToFrontPage()">Back to search</button>
-<div *ngIf="!!pokemon else spinner" class="flex">
+<button mat-raised-button (click)="navigateToFrontPage()">
+  Back to search
+</button>
+<div *ngIf="!!pokemon; else spinner" class="flex">
   <div>
-    <img class="pokemon-picture" [ngSrc]="pokemon.sprites.front_default" [alt]="pokemon.name" fill>
+    <img
+      class="pokemon-picture"
+      [ngSrc]="pokemon.sprites.front_default"
+      [alt]="pokemon.name"
+      fill
+    />
   </div>
   <div>
-    <div>Name: {{pokemon.name}}</div>
-    <div>Weight: {{pokemon.weight}}</div>
-    <div>Height: {{pokemon.height}}</div>
-    <div>Abilities: {{getAbilities()}}</div>
-    <div>Status: {{status ? 'Caught' : '-'}}</div>
+    <div>Name: {{ pokemon.name }}</div>
+    <div>Weight: {{ pokemon.weight }}</div>
+    <div>Height: {{ pokemon.height }}</div>
+    <div>Abilities: {{ getAbilities() }}</div>
+    <div>Status: {{ status ? "Caught" : "-" }}</div>
   </div>
-  <button mat-raised-button (click)="pokemonAction($event, pokemon)">{{status ? 'Release' : 'Catch'}}</button>
+  <button mat-raised-button (click)="pokemonAction($event, pokemon)">
+    {{ status ? "Release" : "Catch" }}
+  </button>
 </div>
 
 <ng-template #spinner>

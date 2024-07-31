@@ -1,5 +1,11 @@
 <div class="flex">
-  <app-filter-by-name (searchPokemons)="searchPokemons.emit($event)"></app-filter-by-name>
-  <app-filter-by-type (typeChanged)="typeChanged.emit($event)"></app-filter-by-type>
-  <app-filter-by-caught (showCaught)="showCaught.emit($event)"></app-filter-by-caught>
+  <app-filter-by-name
+    (searchPokemons)="searchPokemons.emit($event)"
+  ></app-filter-by-name>
+  <app-filter-by-type
+    (typeChanged)="typeChanged.emit($event)"
+  ></app-filter-by-type>
+  <app-filter-by-caught
+    (showCaught)="showCaught.emit($event)"
+  ></app-filter-by-caught>
 </div>

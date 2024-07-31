@@ -1,27 +1,45 @@
-<table *ngIf="!!pokemons else spinner" mat-table [dataSource]="pokemons" class="mat-elevation-z8 pokemon-table">
+<table
+  *ngIf="!!pokemons; else spinner"
+  mat-table
+  [dataSource]="pokemons"
+  class="mat-elevation-z8 pokemon-table"
+>
+  <ng-container matColumnDef="name">
+    <th mat-header-cell *matHeaderCellDef>Names</th>
+    <td
+      mat-cell
+      [ngClass]="pokemon.caught ? 'caught' : ''"
+      *matCellDef="let pokemon"
+    >
+      {{ pokemon.name }}
+    </td>
+  </ng-container>
 
-    <ng-container matColumnDef="name">
-      <th mat-header-cell *matHeaderCellDef> Names </th>
-      <td mat-cell [ngClass]="pokemon.caught ? 'caught' : ''" *matCellDef="let pokemon"> {{pokemon.name}} </td>
-    </ng-container>
+  <ng-container matColumnDef="types">
+    <th mat-header-cell *matHeaderCellDef>Types</th>
+    <td mat-cell *matCellDef="let pokemon">{{ getTypes(pokemon) }}</td>
+  </ng-container>
 
-    <ng-container matColumnDef="types">
-      <th mat-header-cell *matHeaderCellDef> Types </th>
-      <td mat-cell *matCellDef="let pokemon"> {{getTypes(pokemon)}} </td>
-    </ng-container>
-
-    <ng-container matColumnDef="status">
-      <th mat-header-cell *matHeaderCellDef> Status </th>
-      <td mat-cell *matCellDef="let pokemon"> {{isCaught(pokemon.caught)}} </td>
-    </ng-container>
+  <ng-container matColumnDef="status">
+    <th mat-header-cell *matHeaderCellDef>Status</th>
+    <td mat-cell *matCellDef="let pokemon">{{ isCaught(pokemon.caught) }}</td>
+  </ng-container>
 
   <ng-container matColumnDef="button">
-    <th mat-header-cell *matHeaderCellDef>  </th>
-    <td mat-cell *matCellDef="let pokemon"><button mat-raised-button (click)="pokemonAction($event, pokemon)">{{pokemon.caught ? 'Release' : 'Catch'}}</button></td>
+    <th mat-header-cell *matHeaderCellDef></th>
+    <td mat-cell *matCellDef="let pokemon">
+      <button mat-raised-button (click)="pokemonAction($event, pokemon)">
+        {{ pokemon.caught ? "Release" : "Catch" }}
+      </button>
+    </td>
   </ng-container>
 
   <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
-  <tr mat-row *matRowDef="let pokemon; columns: displayedColumns;" (click)="openPokemonDetails(pokemon.name, pokemon.caught)"></tr>
+  <tr
+    mat-row
+    *matRowDef="let pokemon; columns: displayedColumns"
+    (click)="openPokemonDetails(pokemon.name, pokemon.caught)"
+  ></tr>
 </table>
 
 <ng-template #spinner>

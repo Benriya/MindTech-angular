@@ -1,5 +1,5 @@
 .text {
-  color: white
+  color: white;
 }
 
 .flex-view {
@@ -15,7 +15,7 @@
 .logo {
   width: 6em;
   height: 3em;
-  background-image: url('../../resources/Pokemon-Logo.png');
+  background-image: url("../../resources/Pokemon-Logo.png");
   background-repeat: no-repeat;
   background-size: cover;
 }

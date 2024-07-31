@@ -8,9 +8,8 @@ describe('PokemonFrontPageComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      imports: [PokemonFrontPageComponent]
-    })
-    .compileComponents();
+      imports: [PokemonFrontPageComponent],
+    }).compileComponents();
 
     fixture = TestBed.createComponent(PokemonFrontPageComponent);
     component = fixture.componentInstance;

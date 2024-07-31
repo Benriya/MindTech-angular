@@ -2,7 +2,8 @@
   <app-pokemon-search
     (showCaught)="showCaught($event)"
     (searchPokemons)="filterPokemonNames($event)"
-    (typeChanged)="filterPokemonTypes($event)">
+    (typeChanged)="filterPokemonTypes($event)"
+  >
   </app-pokemon-search>
-  <app-pokemon-list [pokemons] = "(pokemons$ | async) || []"></app-pokemon-list>
+  <app-pokemon-list [pokemons]="(pokemons$ | async) || []"></app-pokemon-list>
 </div>

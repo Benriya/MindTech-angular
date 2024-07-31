@@ -1,7 +1,7 @@
-import {Component, EventEmitter, Output} from '@angular/core';
-import {FilterByCaughtComponent} from "./search-filters/filter-by-caught/filter-by-caught.component";
-import {FilterByNameComponent} from "./search-filters/filter-by-name/filter-by-name.component";
-import {FilterByTypeComponent} from "./search-filters/filter-by-type/filter-by-type.component";
+import { Component, EventEmitter, Output } from '@angular/core';
+import { FilterByCaughtComponent } from './search-filters/filter-by-caught/filter-by-caught.component';
+import { FilterByNameComponent } from './search-filters/filter-by-name/filter-by-name.component';
+import { FilterByTypeComponent } from './search-filters/filter-by-type/filter-by-type.component';
 
 @Component({
   selector: 'app-pokemon-search',
@@ -9,10 +9,10 @@ import {FilterByTypeComponent} from "./search-filters/filter-by-type/filter-by-t
   imports: [
     FilterByCaughtComponent,
     FilterByNameComponent,
-    FilterByTypeComponent
+    FilterByTypeComponent,
   ],
   templateUrl: './pokemon-search.component.html',
-  styleUrl: './pokemon-search.component.css'
+  styleUrl: './pokemon-search.component.css',
 })
 export class PokemonSearchComponent {
   @Output() showCaught = new EventEmitter<boolean>();
