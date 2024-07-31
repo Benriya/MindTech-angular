@@ -29,7 +29,7 @@ export class PokemonListComponent {
   }
 
   isCaught(caught: boolean): string {
-    return caught ? 'Caught' : '-';
+    return this.pokemonService.getStatusText(caught);
   }
 
   pokemonAction(event: MouseEvent, pokemon: PokemonModel): void {

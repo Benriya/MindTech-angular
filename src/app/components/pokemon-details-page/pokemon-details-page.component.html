@@ -15,10 +15,10 @@
     <div>Weight: {{ pokemon.weight }}</div>
     <div>Height: {{ pokemon.height }}</div>
     <div>Abilities: {{ getAbilities() }}</div>
-    <div>Status: {{ status ? "Caught" : "-" }}</div>
+    <div>Status: {{ statusText }}</div>
   </div>
   <button mat-raised-button (click)="pokemonAction($event, pokemon)">
-    {{ status ? "Release" : "Catch" }}
+    {{ buttonText }}
   </button>
 </div>
 

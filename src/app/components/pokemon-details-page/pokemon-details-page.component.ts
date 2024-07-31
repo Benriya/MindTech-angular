@@ -20,6 +20,8 @@ import { debounceTime } from 'rxjs';
 export class PokemonDetailsPageComponent implements OnInit {
   pokemon: any;
   status: boolean = false;
+  statusText = '';
+  buttonText = '';
 
   constructor(
     private readonly pokemonService: PokemonService,
@@ -33,6 +35,8 @@ export class PokemonDetailsPageComponent implements OnInit {
       .getPokemonByName(<string>this.route.snapshot.paramMap.get('pokemon'))
       .pipe(untilDestroyed(this), debounceTime(2000))
       .subscribe((pokemon) => (this.pokemon = pokemon));
+    this.statusText = this.pokemonService.getStatusText(this.status);
+    this.buttonText = this.pokemonService.getButtonCatchText(this.status);
   }
 
   //refreshing before clicking Catch or Release will delete LocalStorage, don't know why yet

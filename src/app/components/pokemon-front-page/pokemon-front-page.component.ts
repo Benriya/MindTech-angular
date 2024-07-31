@@ -32,9 +32,9 @@ export class PokemonFrontPageComponent implements OnInit {
 
   ngOnInit(): void {
     //should be inside the other pipe, couldn't figure out
-    this.pokemons$.subscribe(
-      (pokemons) => (this.existingPokemonLength = pokemons.length),
-    );
+    this.pokemons$
+      .pipe(untilDestroyed(this))
+      .subscribe((pokemons) => (this.existingPokemonLength = pokemons.length));
 
     if (!this.existingPokemonLength) {
       this.pokemonService

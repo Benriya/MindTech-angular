@@ -71,4 +71,12 @@ export class PokemonService {
       (type: { slot: number; type: GenericAPIModel }) => type.type.name,
     );
   }
+
+  getButtonCatchText(status: boolean): string {
+    return status ? 'Release' : 'Catch';
+  }
+
+  getStatusText(status: boolean): string {
+    return status ? 'Caught' : '-';
+  }
 }
